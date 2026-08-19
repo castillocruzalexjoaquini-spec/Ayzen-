@@ -1,12 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AYZEN</title>
 <style>
-body {
-  background-image: url('Images/fondo.jpg') !important;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('Images/fondo.jpg') no-repeat center center fixed !important;
   background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
+  background-color: #000;
 }
-</style><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AYZEN — Streetwear, accesorios, pantalones y decants."><title>AYZEN — Streetwear</title><link rel="stylesheet" href="style.css"></head><body>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+</style>
+</head>
+<body>
+<div class="bar">AYZEN • STREETWEAR / PEDIDOS POR WHATSAPP</div>
+<header><a class="logo" href="#inicio">AYZEN</a></header>
+<main id="inicio">
+<section class="hero"><h1><small>AYZEN</small><br>NUEVA GENERACION / STREETWEAR</h1><p>VISTE tu personalidad</p></section>
+<section id="tienda" class="shop"><div class="heading"><div><small>CATÁLOGO</small><h2>ELIGE TU ESTILO</h2></div></div></section>
+<section id="nosotros" class="about"><small>01</small><h2>SOBRE AYZEN</h2></section>
+<section id="contacto" class="contact"><div><small>¿TIENES UNA DUDA?</small><h2>HABLEMOS</h2></div></section>
+</main>
+<footer><div class="logo">AYZEN</div><span>© 2026 AYZEN • STREETWEAR</span></footer>
+<div id="overlay"></div><aside id="cart"><div class="cartHead"><div><small>TU PEDIDO</small></div></div></aside>
+<script src="script.js"></script>
+</body>
+</html><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AYZEN — Streetwear, accesorios, pantalones y decants."><title>AYZEN — Streetwear</title><link rel="stylesheet" href="style.css"></head><body>
 <div class="bar">AYZEN — STREETWEAR / PEDIDOS POR WHATSAPP</div>
 <header><a class="logo" href="#inicio">AYZEN<span>.</span></a><nav id="nav"><a href="#tienda">Tienda</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav><button id="menu">☰</button><button id="openCart">Carrito <b id="count">0</b></button></header>
 <main id="inicio">
