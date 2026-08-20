@@ -8,9 +8,9 @@ const WHATSAPP = "524612001099";
 
 const productos = [
 
-  { id: 1, name: "Producto Ayzen P1", nombre: "Producto Ayzen P1", price: 250, precio: 250, image: "images/p1.jpg", imagen: "imagess/p1.jpg", cat: "general", categoria: "general" },
+  { id: 1, name: "Producto Ayzen P1", nombre: "Producto Ayzen P1", price: 250, precio: 250, image: "images/p1.jpg", imagen: "images/p1.jpg", cat: "general", categoria: "general" },
 
-  { id: 2, name: "Producto Ayzen P2", nombre: "Producto Ayzen P2", price: 250, precio: 250, image: "images/p2.jpg", imagen: "imagess/p2.jpg", cat: "general", categoria: "general" },
+  { id: 2, name: "Producto Ayzen P2", nombre: "Producto Ayzen P2", price: 250, precio: 250, image: "images/p2.jpg", imagen: "images/p2.jpg", cat: "general", categoria: "general" },
 
   { id: 3, name: "Producto Ayzen P3", nombre: "Producto Ayzen P3", price: 300, precio: 300, image: "images/p3.jpg", imagen: "images/p3.jpg", cat: "general", categoria: "general" },
 
