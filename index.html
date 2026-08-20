@@ -3,31 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AYZEN</title>
+<title>AYZEN | Streetwear</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="bar">AYZEN • STREETWEAR / PEDIDOS POR WHATSAPP</div>
-<header><a class="logo" href="#inicio">AYZEN</a><button id="openCart">CARRITO <span id="count">0</span></button></header>
+
+<div class="bar">
+    AYZEN • STREETWEAR / PEDIDOS POR WHATSAPP
+</div>
+
+<header>
+    <a class="logo" href="#inicio">AYZEN</a>
+
+    <button id="openCart">
+        CARRITO <span id="count">0</span>
+    </button>
+</header>
 
 <div class="collage"></div>
 
 <main>
-<section class="hero">
-<h1><small>AYZEN</small>NUEVA GENERACION / STREETWEAR</h1>
-<p>VISTE TU PERSONALIDAD</p>
+
+<section class="hero" id="inicio">
+
+    <h1>
+        <small>AYZEN</small>
+        NUEVA GENERACIÓN / STREETWEAR
+    </h1>
+
+    <p>VISTE TU PERSONALIDAD</p>
+
 </section>
 
-<section class="shop">
-<div class="heading"><small>CATALOGO</small><h2>ELIGE TU ESTILO</h2></div>
-<div class="products" id="products"></div>
+
+<section class="shop" id="catalogo">
+
+    <div class="heading">
+        <small>CATÁLOGO</small>
+        <h2>ELIGE TU ESTILO</h2>
+    </div>
+
+
+    <div class="filters" id="filters">
+
+        <button class="active" data-cat="all">
+            TODO
+        </button>
+
+        <button data-cat="playeras">
+            PLAYERAS
+        </button>
+
+        <button data-cat="jeans">
+            PANTALONES
+        </button>
+
+        <button data-cat="accesorios">
+            ACCESORIOS
+        </button>
+
+        <button data-cat="general">
+            OTROS
+        </button>
+
+    </div>
+
+
+    <div class="products" id="products"></div>
+
 </section>
+
 </main>
 
-<footer>© 2026 AYZEN</footer>
+
+<footer>
+    © 2026 AYZEN
+</footer>
+
 
 <div id="overlay"></div>
-<aside id="cart"><div class="cartHead"><h2>CARRITO</h2><button id="closeCart">X</button></div><div id="items"></div><div class="cartFoot"><b id="total">$0 MXN</b><a class="btn full" id="checkout" target="_blank">PEDIR POR WHATSAPP</a></div></aside>
+
+
+<aside id="cart">
+
+    <div class="cartHead">
+
+        <h2>CARRITO</h2>
+
+        <button id="closeCart">X</button>
+
+    </div>
+
+
+    <div id="items"></div>
+
+
+    <div class="cartFoot">
+
+        <strong id="total">$0 MXN</strong>
+
+        <button id="wa" class="btn full">
+            PEDIR POR WHATSAPP
+        </button>
+
+        <button id="clear" class="clear">
+            VACIAR CARRITO
+        </button>
+
+    </div>
+
+</aside>
+
+
 <script src="script.js"></script>
+
 </body>
 </html>
