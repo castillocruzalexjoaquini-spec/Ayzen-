@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AYZEN</title>
+<link rel="stylesheet" href="style.css">
 <style>
 html, body {
   margin: 0;
@@ -25,14 +26,23 @@ body::before {
 </head>
 <body>
 <div class="bar">AYZEN • STREETWEAR / PEDIDOS POR WHATSAPP</div>
-<header><a class="logo" href="#inicio">AYZEN</a></header>
+<header><a class="logo" href="#inicio">AYZEN</a><button id="openCart">CARRITO <span id="count">0</span></button></header>
 <main id="inicio">
 <section class="hero"><h1><small>AYZEN</small><br>NUEVA GENERACION / STREETWEAR</h1><p>VISTE tu personalidad</p></section>
-<section id="tienda" class="shop"><div class="heading"><div><small>CATÁLOGO</small><h2>ELIGE TU ESTILO</h2></div></div></section>
+
+<section id="tienda" class="shop">
+<div class="heading"><div><small>CATÁLOGO</small><h2>ELIGE TU ESTILO</h2></div></div>
+<div class="products" id="products"></div>
+</section>
+
 <section id="nosotros" class="about"><small>01</small><h2>SOBRE AYZEN</h2></section>
-<section id="contacto" class="contact"><div><small>¿TIENES UNA DUDA?</small><h2>HABLEMOS</h2></div></section>
+<section id="contacto" class="contact"><div><small>¿TIENES UNA DUDA?</small><h2>HABLEMOS</h2></div><a class="btn" id="waBtn" href="https://wa.me/524612001099" target="_blank">WHATSAPP</a></section>
 </main>
 <footer><div class="logo">AYZEN</div><span>© 2026 AYZEN • STREETWEAR</span></footer>
+
+<div id="overlay"></div>
+<aside id="cart"><div class="cartHead"><h2>CARRITO</h2><button id="closeCart">×</button></div><div id="items"></div><div class="cartFoot"><div class="total"><span>TOTAL</span><b id="total">$0 MXN</b></div><a class="btn full" id="checkout" target="_blank">PEDIR POR WHATSAPP</a></div></aside>
+
 <script src="script.js"></script>
 </body>
 </html>
