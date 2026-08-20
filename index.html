@@ -3,95 +3,249 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AYZEN | Streetwear</title>
+
+<title>AYZEN — Streetwear</title>
+
+<meta name="description" content="AYZEN — Streetwear para una nueva generación.">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- BARRA SUPERIOR -->
 <div class="bar">
-    AYZEN • STREETWEAR / PEDIDOS POR WHATSAPP
+    AYZEN • STREETWEAR • NUEVA GENERACIÓN
 </div>
 
-<header>
-    <a class="logo" href="#inicio">AYZEN</a>
 
-    <button id="openCart">
-        CARRITO <span id="count">0</span>
+<!-- HEADER -->
+<header>
+
+    <a class="logo" href="#inicio">
+        AYZEN
+    </a>
+
+    <nav id="nav">
+
+        <a href="#inicio">
+            INICIO
+        </a>
+
+        <a href="#catalogo">
+            CATÁLOGO
+        </a>
+
+        <a href="#about">
+            AYZEN
+        </a>
+
+    </nav>
+
+    <button id="openCart" class="cartButton">
+        CARRITO
+        <span id="count">0</span>
     </button>
+
 </header>
 
+
+<!-- FONDO -->
 <div class="collage"></div>
+
 
 <main>
 
-<section class="hero" id="inicio">
+    <!-- HERO -->
+    <section class="hero" id="inicio">
 
-    <h1>
-        <small>AYZEN</small>
-        NUEVA GENERACIÓN / STREETWEAR
-    </h1>
+        <div class="heroContent">
 
-    <p>VISTE TU PERSONALIDAD</p>
+            <div class="eyebrow">
+                AYZEN / DROP 001
+            </div>
 
-</section>
+            <h1>
+                NUEVA GENERACIÓN
+                <span>STREETWEAR</span>
+            </h1>
+
+            <p>
+                VISTE TU PERSONALIDAD.
+            </p>
+
+            <a href="#catalogo" class="heroButton">
+                VER CATÁLOGO
+                <span>↓</span>
+            </a>
+
+        </div>
+
+        <div class="heroNumber">
+            001
+        </div>
+
+    </section>
 
 
-<section class="shop" id="catalogo">
+    <!-- MARQUEE -->
+    <div class="marquee">
 
-    <div class="heading">
-        <small>CATÁLOGO</small>
-        <h2>ELIGE TU ESTILO</h2>
-    </div>
-
-
-    <div class="filters" id="filters">
-
-        <button class="active" data-cat="all">
-            TODO
-        </button>
-
-        <button data-cat="playeras">
-            PLAYERAS
-        </button>
-
-        <button data-cat="jeans">
-            PANTALONES
-        </button>
-
-        <button data-cat="accesorios">
-            ACCESORIOS
-        </button>
-
-        <button data-cat="general">
-            OTROS
-        </button>
+        <div>
+            AYZEN • STREETWEAR • AYZEN • STREETWEAR •
+            AYZEN • STREETWEAR • AYZEN • STREETWEAR •
+        </div>
 
     </div>
 
 
-    <div class="products" id="products"></div>
+    <!-- CATALOGO -->
+    <section class="shop" id="catalogo">
 
-</section>
+        <div class="sectionTop">
+
+            <div class="heading">
+
+                <small>
+                    CATÁLOGO / 2026
+                </small>
+
+                <h2>
+                    ELIGE TU ESTILO
+                </h2>
+
+            </div>
+
+            <div class="productCount">
+                <span id="visibleCount">31</span>
+                PRODUCTOS
+            </div>
+
+        </div>
+
+
+        <!-- FILTROS -->
+        <div class="filters" id="filters">
+
+            <button class="active" data-cat="all">
+                TODO
+            </button>
+
+            <button data-cat="playeras">
+                PLAYERAS
+            </button>
+
+            <button data-cat="jeans">
+                PANTALONES
+            </button>
+
+            <button data-cat="accesorios">
+                ACCESORIOS
+            </button>
+
+            <button data-cat="general">
+                OTROS
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTOS -->
+        <div class="products" id="products"></div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="aboutNumber">
+            01
+        </div>
+
+        <div>
+
+            <small>
+                SOBRE AYZEN
+            </small>
+
+            <h2>
+                NO VESTIMOS
+                <span>A TODOS.</span>
+            </h2>
+
+            <p>
+                AYZEN nace para quienes quieren vestir
+                diferente. Streetwear, actitud y piezas
+                seleccionadas para construir tu propio estilo.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <small>
+            AYZEN / DROP 001
+        </small>
+
+        <h2>
+            VISTE TU
+            <span>PERSONALIDAD.</span>
+        </h2>
+
+        <a href="#catalogo">
+            EXPLORAR PRODUCTOS →
+        </a>
+
+    </section>
 
 </main>
 
 
+<!-- FOOTER -->
 <footer>
-    © 2026 AYZEN
+
+    <div class="footerLogo">
+        AYZEN
+    </div>
+
+    <p>
+        STREETWEAR FOR THE NEW GENERATION.
+    </p>
+
+    <span>
+        © 2026 AYZEN
+    </span>
+
 </footer>
 
 
+<!-- OVERLAY CARRITO -->
 <div id="overlay"></div>
 
 
+<!-- CARRITO -->
 <aside id="cart">
 
     <div class="cartHead">
 
-        <h2>CARRITO</h2>
+        <div>
+            <small>
+                TU SELECCIÓN
+            </small>
 
-        <button id="closeCart">X</button>
+            <h2>
+                CARRITO
+            </h2>
+        </div>
+
+        <button id="closeCart">
+            ×
+        </button>
 
     </div>
 
@@ -101,10 +255,21 @@
 
     <div class="cartFoot">
 
-        <strong id="total">$0 MXN</strong>
+        <div class="totalRow">
 
-        <button id="wa" class="btn full">
+            <span>
+                TOTAL
+            </span>
+
+            <strong id="total">
+                $0 MXN
+            </strong>
+
+        </div>
+
+        <button id="wa" class="checkout">
             PEDIR POR WHATSAPP
+            <span>→</span>
         </button>
 
         <button id="clear" class="clear">
@@ -114,6 +279,12 @@
     </div>
 
 </aside>
+
+
+<!-- TOAST -->
+<div id="toast">
+    PRODUCTO AGREGADO ✓
+</div>
 
 
 <script src="script.js"></script>
