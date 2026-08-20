@@ -1,6 +1,11 @@
 const WHATSAPP = "524612001099";
 
 
+/* =========================
+   PRODUCTOS
+   TUS 31 PRODUCTOS
+========================= */
+
 const productos = [
 
   { id: 1, name: "Producto Ayzen P1", nombre: "Producto Ayzen P1", price: 250, precio: 250, image: "image/p1.jpg", imagen: "image/p1.jpg", cat: "general", categoria: "general" },
@@ -75,29 +80,43 @@ let cart = JSON.parse(
 let filter = "all";
 
 
-/* FORMATO DE PRECIO */
+/* =========================
+   PRECIO
+========================= */
 
-const money = n =>
-    `$${n.toLocaleString("es-MX")} MXN`;
+function money(n){
 
-
-/* NOMBRE DE CATEGORÍA */
-
-function catName(c){
-
-    return {
-
-        playeras:"Playeras",
-        jeans:"Pantalones",
-        accesorios:"Accesorios",
-        general:"Otros"
-
-    }[c] || c;
+    return `$${n.toLocaleString("es-MX")} MXN`;
 
 }
 
 
-/* MOSTRAR PRODUCTOS */
+/* =========================
+   CATEGORIAS
+========================= */
+
+function catName(c){
+
+    const names = {
+
+        playeras:"Playeras",
+
+        jeans:"Pantalones",
+
+        accesorios:"Accesorios",
+
+        general:"Otros"
+
+    };
+
+    return names[c] || c;
+
+}
+
+
+/* =========================
+   RENDER PRODUCTOS
+========================= */
 
 function render(){
 
@@ -109,63 +128,67 @@ function render(){
         );
 
 
+    document.querySelector("#visibleCount").textContent =
+        list.length;
+
+
     document.querySelector("#products").innerHTML =
         list.map(p => `
 
-            <article class="product">
+        <article class="product">
 
-                <div class="pic">
+            <div class="pic">
 
-                    ${
-                        p.image
+                ${
+                    p.image
 
-                        ?
+                    ?
 
-                        `<img
-                            src="${p.image}"
-                            alt="${p.name}"
-                            loading="lazy"
-                            onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>AYZEN</div>';"
-                        >`
+                    `<img
+                        src="${p.image}"
+                        alt="${p.name}"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>AYZEN</div>';"
+                    >`
 
-                        :
+                    :
 
-                        `<div class="placeholder">
-                            AYZEN
-                        </div>`
-                    }
+                    `<div class="placeholder">
+                        AYZEN
+                    </div>`
+                }
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="cat">
+                    ${catName(p.cat)}
+                </div>
+
+                <div class="name">
+                    ${p.name}
+                </div>
+
+                <div class="bottom">
+
+                    <span class="price">
+                        ${money(p.price)}
+                    </span>
+
+                    <button
+                        class="add"
+                        onclick="add(${p.id})"
+                    >
+                        AGREGAR +
+                    </button>
 
                 </div>
 
+            </div>
 
-                <div class="info">
-
-                    <div class="cat">
-                        ${catName(p.cat)}
-                    </div>
-
-                    <div class="name">
-                        ${p.name}
-                    </div>
-
-                    <div class="bottom">
-
-                        <span class="price">
-                            ${money(p.price)}
-                        </span>
-
-                        <button
-                            class="add"
-                            onclick="add(${p.id})"
-                        >
-                            AGREGAR +
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
+        </article>
 
         `).join("");
 
@@ -175,7 +198,9 @@ function render(){
 }
 
 
-/* ACTUALIZAR CARRITO */
+/* =========================
+   CARRITO
+========================= */
 
 function updateCart(){
 
@@ -197,14 +222,24 @@ function updateCart(){
     if(!cart.length){
 
         items.innerHTML = `
+
             <div class="empty">
-                Tu carrito está vacío.<br>
-                Agrega algo que te guste.
+
+                TU CARRITO ESTÁ VACÍO.
+
+                <br>
+
+                Agrega algo de AYZEN
+                para comenzar.
+
             </div>
+
         `;
+
 
         document.querySelector("#total").textContent =
             "$0 MXN";
+
 
         localStorage.setItem(
             "ayzen-cart",
@@ -219,45 +254,45 @@ function updateCart(){
     let total = 0;
 
 
-    items.innerHTML = cart.map(x => {
+    items.innerHTML = cart.map(item => {
 
-        const p =
+        const product =
             productos.find(
-                y => y.id === x.id
+                p => p.id === item.id
             );
 
 
-        if(!p) return "";
+        if(!product) return "";
 
 
         total +=
-            p.price * x.qty;
+            product.price * item.qty;
 
 
         return `
 
-            <div class="cartItem">
+        <div class="cartItem">
 
-                <div>
+            <div>
 
-                    <strong>
-                        ${p.name}
-                    </strong>
+                <strong>
+                    ${product.name}
+                </strong>
 
-                    <span>
-                        ${x.qty} × ${money(p.price)}
-                    </span>
-
-                </div>
-
-                <button
-                    class="remove"
-                    onclick="removeItem(${p.id})"
-                >
-                    ELIMINAR
-                </button>
+                <span>
+                    ${item.qty} × ${money(product.price)}
+                </span>
 
             </div>
+
+            <button
+                class="remove"
+                onclick="removeItem(${product.id})"
+            >
+                ELIMINAR
+            </button>
+
+        </div>
 
         `;
 
@@ -276,13 +311,15 @@ function updateCart(){
 }
 
 
-/* AGREGAR PRODUCTO */
+/* =========================
+   AGREGAR
+========================= */
 
 function add(id){
 
     const item =
         cart.find(
-            i => i.id === id
+            x => x.id === id
         );
 
 
@@ -293,8 +330,11 @@ function add(id){
     }else{
 
         cart.push({
+
             id:id,
+
             qty:1
+
         });
 
     }
@@ -302,12 +342,16 @@ function add(id){
 
     updateCart();
 
+    showToast();
+
     openCart();
 
 }
 
 
-/* ELIMINAR PRODUCTO */
+/* =========================
+   ELIMINAR
+========================= */
 
 function removeItem(id){
 
@@ -322,7 +366,9 @@ function removeItem(id){
 }
 
 
-/* ABRIR CARRITO */
+/* =========================
+   CARRITO OPEN
+========================= */
 
 function openCart(){
 
@@ -338,7 +384,9 @@ function openCart(){
 }
 
 
-/* CERRAR CARRITO */
+/* =========================
+   CARRITO CLOSE
+========================= */
 
 function closeCart(){
 
@@ -354,14 +402,45 @@ function closeCart(){
 }
 
 
-/* PEDIDO POR WHATSAPP */
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(){
+
+    const toast =
+        document.querySelector("#toast");
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+                toast.classList.remove("show");
+            },
+            1600
+        );
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
 
 function whatsapp(){
 
     if(!cart.length){
 
         alert(
-            "Agrega al menos un producto al carrito."
+            "Tu carrito está vacío."
         );
 
         return;
@@ -373,29 +452,31 @@ function whatsapp(){
 
 
     const lines =
-        cart.map(x => {
+        cart.map(item => {
 
-            const p =
+            const product =
                 productos.find(
-                    y => y.id === x.id
+                    p => p.id === item.id
                 );
 
 
             total +=
-                p.price * x.qty;
+                product.price * item.qty;
 
 
-            return `• ${p.name} — ${x.qty} × ${money(p.price)}`;
+            return `• ${product.name} — ${item.qty} × ${money(product.price)}`;
 
         });
 
 
     const msg =
-`Hola, Ayzen. Quiero hacer este pedido:
+`Hola, AYZEN.
+
+Quiero hacer este pedido:
 
 ${lines.join("\n")}
 
-Total aproximado: ${money(total)}
+TOTAL: ${money(total)}
 
 ¿Me confirman disponibilidad y forma de entrega/pago?`;
 
@@ -408,16 +489,18 @@ Total aproximado: ${money(total)}
 }
 
 
-/* FILTROS */
+/* =========================
+   FILTROS
+========================= */
 
 document
     .querySelector("#filters")
     .addEventListener(
         "click",
-        e => {
+        event => {
 
             const button =
-                e.target.closest("button");
+                event.target.closest("button");
 
 
             if(!button) return;
@@ -446,7 +529,9 @@ document
     );
 
 
-/* ABRIR CARRITO */
+/* =========================
+   EVENTOS
+========================= */
 
 document
     .querySelector("#openCart")
@@ -456,8 +541,6 @@ document
     );
 
 
-/* CERRAR CARRITO */
-
 document
     .querySelector("#closeCart")
     .addEventListener(
@@ -465,8 +548,6 @@ document
         closeCart
     );
 
-
-/* CERRAR TOCANDO FUERA */
 
 document
     .querySelector("#overlay")
@@ -476,8 +557,6 @@ document
     );
 
 
-/* WHATSAPP */
-
 document
     .querySelector("#wa")
     .addEventListener(
@@ -485,8 +564,6 @@ document
         whatsapp
     );
 
-
-/* VACIAR CARRITO */
 
 document
     .querySelector("#clear")
@@ -502,6 +579,8 @@ document
     );
 
 
-/* INICIAR */
+/* =========================
+   INICIAR
+========================= */
 
 render();
